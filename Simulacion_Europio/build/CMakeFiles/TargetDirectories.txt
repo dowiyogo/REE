@@ -1,0 +1,3 @@
+/home/rene/Geant4/Simulacion_Europio/build/CMakeFiles/Simulacion_Europio.dir
+/home/rene/Geant4/Simulacion_Europio/build/CMakeFiles/edit_cache.dir
+/home/rene/Geant4/Simulacion_Europio/build/CMakeFiles/rebuild_cache.dir

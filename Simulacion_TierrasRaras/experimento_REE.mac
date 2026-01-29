@@ -1,0 +1,44 @@
+# === Inicialización ===
+/run/initialize
+
+# ==========================================================
+# EXPERIMENTO 1: FUENTE DE Na-22 (Simplificada para Garantizar Datos)
+# ==========================================================
+# En lugar de esperar el decaimiento del ion, lanzamos los gammas característicos.
+# El Na-22 emite un gamma de 1274 keV y un positrón (que genera 2 gammas de 511).
+# Simularemos una mezcla de estas energías.
+
+/gps/particle gamma
+/gps/pos/type Point
+/gps/pos/centre 0. 0. 0. cm
+/gps/ang/type iso
+
+# Definimos un espectro discreto (511 keV y 1274 keV)
+# Usamos histograma de energía puntual para simular ambas emisiones
+/gps/ene/type Arb
+/gps/hist/type arb
+/gps/hist/point 0.511 1.8  # El 511 es más intenso (son 2 gammas por decaimiento)
+/gps/hist/point 1.274 1.0  # El 1274 sale una vez
+/gps/hist/inter Lin
+
+# Lanzamos 1 Millón (Suficiente para ver los picos)
+/run/beamOn 100000000
+
+# ==========================================================
+# EXPERIMENTO 2: FUENTE DE Am-241 (Tierras Raras)
+# ==========================================================
+
+# 1. Borramos la configuración anterior (Na-22)
+/gps/source/clear
+
+# 2. ¡IMPORTANTE! Agregamos una fuente nueva vacía (Intensidad 1)
+/gps/source/add 1   # <--- AGREGA ESTA LÍNEA OBLIGATORIAMENTE
+
+# 3. Ahora sí configuramos el Americio
+/gps/particle gamma
+/gps/energy 59.5 keV
+/gps/pos/type Point
+/gps/pos/centre 0. 0. 0. cm
+/gps/ang/type iso
+
+/run/beamOn 100000000

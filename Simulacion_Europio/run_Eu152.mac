@@ -1,0 +1,32 @@
+# =============================================================
+# run_Eu152.mac - Simulación de fuente de Europio-152
+# =============================================================
+# --- 1. CONFIGURACIÓN DE DECAIMIENTO Y FÍSICA ---
+# Asegura que GEANT4 procese isótopos con vidas medias largas (Eu-152 ~13.5 años)
+# El valor es un límite de tiempo muy alto para "habilitar" el decaimiento.
+/process/had/rdm/thresholdForVeryLongDecayTime 1.0e+60 year
+
+# 1. Inicializar la geometría y física
+/run/initialize
+
+# 2. Configurar GPS para Eu-152
+/gps/particle ion
+/gps/ion 63 152 0 0        # Z=63 (Eu), A=152, Q=0, E*=0
+
+# 3. Energía cinética CERO (decae en reposo)
+/gps/energy 0 keV
+
+# 4. Posición de la fuente (punto frente a la muestra)
+/gps/pos/type Point
+/gps/pos/centre 0. 0. -10. cm   # 10 cm antes de la muestra (que está en z=0)
+
+# 5. Dirección hacia el detector (eje +Z)
+/gps/ang/type iso              # Emisión isotrópica (realista)
+# Alternativa para haz colimado:
+# /gps/direction 0 0 1
+
+# 6. Nombre del archivo de salida
+/analysis/setFileName Eu152_default
+
+# 7. Ejecutar simulación
+/run/beamOn 100000
