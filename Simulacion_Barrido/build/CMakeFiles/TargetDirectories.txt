@@ -1,3 +1,0 @@
-/home/rene/Geant4/Simulacion_Barrido/build/CMakeFiles/Simulacion_Barrido.dir
-/home/rene/Geant4/Simulacion_Barrido/build/CMakeFiles/edit_cache.dir
-/home/rene/Geant4/Simulacion_Barrido/build/CMakeFiles/rebuild_cache.dir
