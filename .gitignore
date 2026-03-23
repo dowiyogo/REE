@@ -3,3 +3,73 @@
 *.so
 __pycache__/
 *.root
+# --- Build / CMake ---
+**/build/
+**/Build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+install_manifest.txt
+compile_commands.json
+*.cmake.user
+CMakeScripts/
+Testing/
+
+# --- Compilados / binarios ---
+*.o
+*.obj
+*.so
+*.a
+*.la
+*.dylib
+*.dll
+*.exe
+*.out
+*.bin
+*.app
+*.d
+*.o.d
+*.gch
+*.pch
+
+# --- Ejecutables generados (por si quedan dentro del árbol) ---
+Simulacion_*/*/Simulacion_*
+Simulacion_*/*/*.run
+Simulacion_*/*/*.sh~
+
+# --- Logs / temporales ---
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+*.bak
+*.old
+
+# --- R ---
+.Rhistory
+.RData
+.Rproj.user/
+
+# --- Python (si aparece después) ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# --- OS / editores ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Resultados pesados (opcionales) ---
+# Si NO quieres versionar resultados/plots/PDFs, descomenta:
+**/Resultados*/
+**/Plots/
+*.png
+*.pdf
+*.csv
